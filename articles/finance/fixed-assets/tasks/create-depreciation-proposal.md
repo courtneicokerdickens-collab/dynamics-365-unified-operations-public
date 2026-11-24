@@ -60,4 +60,20 @@ These features work together to optimize the depreciation proposal process by im
 > [Important!] 
 The budget depreciation proposal includes assets in both **Open** and **Not yet acquired** status. The (actual) depreciation proposal includes assets in **Open** status only. Why the amounts differ: For an asset with no posted acquisition, status = **Not yet acquired**, the depreciation engine uses the asset book's proposed Acquisition price as the depreciable base. This lets the budget proposal forecast depreciation for planned assets that haven't been acquired yet. The actual depreciation run excludes those assets until they are acquired. As a result, the budget total legitimately exceeds the actual total, and the two proposals won't match.
 
+NOTE: ### Depreciation proposal journal line limit
+
+In Dynamics 365 Finance version 10.0.49, the **Fixed asset proposal batch enhancements** feature is enabled by default and limits interactive depreciation proposals to 5,000 books per journal.
+
+When a depreciation proposal exceeds this limit, the following validation message is displayed:
+
+“Depreciation proposal might exceed the journal lines limit specified in Assets Parameters.”
+
+The limit cannot be increased through Fixed assets parameters.
+
+The functionality supports batch creation of depreciation proposals by splitting large journals to improve posting performance.
+
+As a temporary workaround, **Fixed asset proposal batch enhancements** can be disabled to permit interactive creation of journals exceeding the 5,000-book limit.
+
+This functionality is expected to become mandatory in a future release.
+
 [!INCLUDE[footer-include](../../../includes/footer-banner.md)]
